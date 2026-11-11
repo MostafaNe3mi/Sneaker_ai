@@ -1,0 +1,218 @@
+.about-page {
+  min-height: calc(100vh - 76px);
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(57, 255, 20, 0.1), transparent 34%),
+    #080808;
+}
+
+.about-content {
+  display: grid;
+  width: min(100%, 1240px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  align-items: center;
+  gap: clamp(42px, 8vw, 112px);
+  margin: 0 auto;
+}
+
+.about-story {
+  max-width: 700px;
+}
+
+.about-story h1 {
+  max-width: 700px;
+  font-size: clamp(52px, 8vw, 88px);
+  line-height: 0.98;
+}
+
+.about-intro {
+  max-width: 640px;
+  margin: 24px 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.about-copy {
+  max-width: 640px;
+  color: #bdbdbd;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.about-copy p {
+  margin: 0 0 16px;
+}
+
+.about-note {
+  position: relative;
+  display: flex;
+  max-width: 640px;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 30px;
+  padding: 17px 20px;
+  border-left: 2px solid #39ff14;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.about-note-mark {
+  align-self: flex-start;
+  color: #39ff14;
+  font-family: Georgia, serif;
+  font-size: 54px;
+  line-height: 0.9;
+}
+
+.about-note p {
+  margin: 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.about-side {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
+.about-sneaker-art {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  min-height: 390px;
+  place-items: center;
+  border: 1px solid rgba(57, 255, 20, 0.24);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(57, 255, 20, 0.15), transparent 42%),
+    linear-gradient(145deg, #181818, #0d0d0d 65%);
+}
+
+.about-art-orbit {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(57, 255, 20, 0.34);
+  border-radius: 50%;
+  transform: rotate(-28deg) scaleY(0.37);
+}
+
+.about-art-orbit-one {
+  width: 340px;
+  height: 340px;
+  border-color: rgba(57, 255, 20, 0.2);
+  transform: rotate(35deg) scaleY(0.45);
+}
+
+.about-art-orbit-two {
+  transform: rotate(-35deg) scaleY(0.48);
+}
+
+.about-art-star {
+  position: absolute;
+  top: 55px;
+  right: 60px;
+  color: #39ff14;
+  font-size: 34px;
+  text-shadow: 0 0 25px rgba(57, 255, 20, 0.65);
+}
+
+.about-art-word {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(50px, 7vw, 74px);
+  line-height: 0.91;
+  text-align: center;
+  text-shadow: 4px 4px 0 rgba(57, 255, 20, 0.2);
+  transform: rotate(-7deg);
+}
+
+.about-art-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
+  color: #a8a8a8;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-values {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.about-values p {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 12px 0;
+  color: #e4e4e4;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.about-values p + p {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-values span {
+  color: #39ff14;
+  font-family: "Anton", sans-serif;
+  font-size: 16px;
+}
+
+@media (max-width: 860px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .about-side {
+    max-width: 620px;
+    justify-self: start;
+  }
+
+  .about-sneaker-art {
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 48px 20px;
+  }
+
+  .about-story h1 {
+    font-size: clamp(48px, 14vw, 64px);
+  }
+
+  .about-copy {
+    font-size: 18px;
+  }
+
+  .about-sneaker-art {
+    min-height: 290px;
+  }
+
+  .about-art-star {
+    top: 38px;
+    right: 34px;
+  }
+}

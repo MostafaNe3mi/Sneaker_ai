@@ -1,0 +1,117 @@
+.feed-hero {
+  position: relative;
+  display: flex;
+  min-height: min(680px, calc(100vh - 76px));
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(48px, 9vw, 120px);
+  background-color: #171717;
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.16) 0%, rgba(8, 8, 8, 0.76) 48%, #080808 100%),
+    url("../assets/hero.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.feed-hero-content {
+  width: min(100%, 620px);
+  margin-left: auto;
+}
+
+.feed-hero-eyebrow {
+  margin: 0 0 16px;
+  color: #39ff14;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.feed-hero h1 {
+  max-width: 600px;
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.feed-hero-description {
+  max-width: 470px;
+  margin: 24px 0 32px;
+  color: #d0d0d0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+}
+
+.feed-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.feed-hero-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border: 1px solid #39ff14;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.feed-hero-button:hover {
+  transform: translateY(-2px);
+}
+
+.feed-hero-button-primary {
+  background: #39ff14;
+  color: #080808;
+}
+
+.feed-hero-button-primary:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+.feed-hero-button-secondary {
+  background: rgba(8, 8, 8, 0.4);
+  color: #fff;
+}
+
+.feed-hero-button-secondary:hover {
+  background: #39ff14;
+  color: #080808;
+}
+
+@media (max-width: 768px) {
+  .feed-hero {
+    min-height: 620px;
+    padding: 56px 24px;
+    background-image:
+      linear-gradient(0deg, #080808 0%, rgba(8, 8, 8, 0.82) 42%, rgba(8, 8, 8, 0.18) 100%),
+      url("../assets/hero.jpg");
+    background-position: 38% center;
+  }
+
+  .feed-hero-content {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .feed-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

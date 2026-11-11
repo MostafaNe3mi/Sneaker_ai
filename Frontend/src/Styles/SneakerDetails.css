@@ -1,0 +1,462 @@
+/* every accent on this page uses these, so the women's edit can switch to pink */
+.sneaker-page {
+  --accent: #39ff14;
+  --accent-rgb: 57, 255, 20;
+  min-height: calc(100vh - 76px);
+  padding: clamp(28px, 5vw, 56px) clamp(16px, 6vw, 80px) clamp(56px, 8vw, 96px);
+  background:
+    radial-gradient(ellipse at 25% 10%, rgba(var(--accent-rgb), 0.08), transparent 40%),
+    #080808;
+  color: #fff;
+}
+
+.sneaker-page-women {
+  --accent: #ffafd0;
+  --accent-rgb: 255, 175, 208;
+  background:
+    radial-gradient(ellipse at 25% 10%, rgba(250, 155, 194, 0.09), transparent 40%),
+    #080808;
+}
+
+.sneaker-page-inner {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+}
+
+/* Breadcrumb */
+.sneaker-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  color: #8a8a8a;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sneaker-breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.sneaker-breadcrumb a:hover {
+  color: #fff;
+}
+
+.sneaker-breadcrumb [aria-current] {
+  color: #d0d0d0;
+}
+
+/* Main detail: image + info */
+.sneaker-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.sneaker-detail-media {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(ellipse at 50% 62%, rgba(var(--accent-rgb), 0.12), transparent 60%),
+    #f5f5f4;
+}
+
+.sneaker-page-women .sneaker-detail-media {
+  border-color: rgba(255, 190, 215, 0.2);
+  background:
+    radial-gradient(ellipse at 50% 62%, rgba(250, 155, 194, 0.22), transparent 60%),
+    #f8eef2;
+}
+
+.sneaker-detail-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sneaker-detail-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(var(--accent-rgb), 0.55);
+  background: rgba(8, 8, 8, 0.92);
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-badge-women {
+  color: #ffc4db;
+}
+
+.sneaker-detail-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.9);
+}
+
+.sneaker-detail-brand {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-info h1 {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-colorway {
+  margin: 12px 0 0;
+  color: #b5b5b5;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+}
+
+.sneaker-detail-price {
+  margin: 22px 0 0;
+  font-family: "Anton", sans-serif;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.sneaker-detail-release {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 24px 0 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+}
+
+.sneaker-detail-release span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-copy {
+  margin: 16px 0 0;
+  color: #d0d0d0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Size picker */
+.sneaker-size-picker {
+  margin: 28px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.sneaker-size-picker legend {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0;
+  color: #e5e5e5;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sneaker-size-picker legend span {
+  color: #8a8a8a;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.sneaker-size-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+}
+
+.sneaker-size-option {
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0f0f0f;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.sneaker-size-option:hover {
+  border-color: var(--accent);
+}
+
+.sneaker-size-option.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #080808;
+}
+
+.sneaker-size-option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+.sneaker-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sneaker-detail-button {
+  display: inline-flex;
+  flex: 1 1 200px;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #080808;
+  cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.sneaker-detail-button:hover {
+  border-color: #fff;
+  background: #fff;
+}
+
+.sneaker-detail-button:disabled {
+  border-color: #2e2e2e;
+  background: #1a1a1a;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.sneaker-detail-button-secondary {
+  background: transparent;
+  color: #fff;
+}
+
+.sneaker-detail-button-secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #080808;
+}
+
+/* Style tip + specs */
+.sneaker-detail-tip {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border-left: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.sneaker-detail-tip span {
+  color: var(--accent);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-tip p {
+  margin: 6px 0 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.sneaker-detail-specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.sneaker-detail-specs dt {
+  color: #8a8a8a;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sneaker-detail-specs dd {
+  margin: 4px 0 0;
+  color: #fff;
+  font-size: 17px;
+}
+
+/* You might also like */
+.sneaker-related {
+  margin-top: clamp(56px, 8vw, 96px);
+}
+
+.sneaker-related h2 {
+  margin: 0 0 22px;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sneaker-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sneaker-related-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.sneaker-related-card:hover,
+.sneaker-related-card:focus-visible {
+  border-color: rgba(var(--accent-rgb), 0.7);
+  outline: none;
+  transform: translateY(-6px);
+}
+
+.sneaker-related-image {
+  aspect-ratio: 1;
+  background: #f5f5f4;
+}
+
+.sneaker-page-women .sneaker-related-image {
+  background: #f8eef2;
+}
+
+.sneaker-related-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sneaker-related-info {
+  padding: 14px 16px 16px;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.sneaker-related-info p {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sneaker-related-info h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.sneaker-related-info span {
+  display: block;
+  margin-top: 8px;
+  font-family: "Anton", sans-serif;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .sneaker-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .sneaker-detail-media {
+    max-height: 560px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .sneaker-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .sneaker-detail-media {
+    aspect-ratio: 1;
+  }
+
+  .sneaker-detail-specs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sneaker-related-grid {
+    gap: 12px;
+  }
+
+  .sneaker-related-info {
+    padding: 12px;
+  }
+
+  .sneaker-related-info h3 {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sneaker-related-card,
+  .sneaker-size-option,
+  .sneaker-detail-button {
+    transition: none;
+  }
+}

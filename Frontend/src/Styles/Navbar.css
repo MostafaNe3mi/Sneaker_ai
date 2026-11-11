@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&display=swap");
+
+/* Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  height: 76px;
+  padding: 0 clamp(16px, 5vw, 64px);
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(57, 255, 20, 0.25);
+}
+
+/* Brand name: white inside, green outline */
+.logo {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-text-stroke: 1.5px transparent;
+  text-shadow: 2px 2px 0 rgba(57, 255, 20, 0.18);
+  transition: opacity 0.2s ease, transform 0.2s ease, -webkit-text-stroke-color 0.2s ease;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: -5px;
+  width: 38%;
+  height: 3px;
+  background: #39ff14;
+  transform: skewX(-35deg);
+  transform-origin: left;
+  transition: width 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+  transform: translateY(-1px) skewX(-7deg);
+  -webkit-text-stroke-color: #39ff14;
+}
+
+.logo:hover::after {
+  width: 68%;
+}
+
+/* groups links + account buttons on the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Page links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  position: relative;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a.active {
+  color: #39ff14;
+}
+
+/* thin green underline that slides in */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #39ff14;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* Log in / Sign up */
+.nav-account-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.nav-login-link,
+.nav-signup-link {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-login-link {
+  color: #d0d0d0;
+}
+
+.nav-login-link:hover {
+  color: #39ff14;
+}
+
+.nav-signup-link {
+  padding: 9px 15px;
+  border: 1px solid #39ff14;
+  color: #39ff14;
+}
+
+.nav-signup-link:hover {
+  background: #39ff14;
+  color: #080808;
+}
+
+/* Search bar (sits between the logo and the links) */
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #8a8a8a;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  pointer-events: none;
+  transition: stroke 0.2s;
+}
+
+.search input {
+  width: 200px;
+  max-width: 100%;
+  padding: 10px 16px 10px 40px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  outline: none;
+  transition: width 0.3s ease, border-color 0.2s, box-shadow 0.2s;
+}
+
+.search input::placeholder {
+  color: #777;
+  text-transform: uppercase;
+}
+
+/* grows and glows green when you click it */
+.search input:focus {
+  width: 260px;
+  border-color: #39ff14;
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.3);
+}
+.search:focus-within .search-icon {
+  stroke: #39ff14;
+}
+
+/* Smaller desktops: tighten spacing so everything fits on one row */
+@media (max-width: 1280px) {
+  .nav-right,
+  .nav-links {
+    gap: 24px;
+  }
+  .search input {
+    width: 170px;
+  }
+  .search input:focus {
+    width: 210px;
+  }
+}
+
+/* Tablets: two rows */
+/* row 1: logo · search · log in/sign up   row 2: page links */
+@media (max-width: 1150px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 12px 20px;
+    padding: 14px clamp(16px, 4vw, 40px) 12px;
+  }
+
+  /* lets the links and account buttons be placed separately */
+  .nav-right {
+    display: contents;
+  }
+
+  .logo {
+    order: 1;
+  }
+  .search {
+    order: 2;
+    flex: 1 1 auto;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .search input,
+  .search input:focus {
+    width: 100%;
+  }
+  .nav-account-links {
+    order: 3;
+  }
+
+  .nav-links {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 48px);
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .nav-links a {
+    font-size: 16px;
+  }
+}
+
+/* Phones: logo + account, then search, then links */
+@media (max-width: 600px) {
+  .navbar {
+    position: relative;
+    gap: 12px;
+    padding: 12px 16px 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .nav-account-links {
+    order: 2;
+    gap: 12px;
+  }
+  .nav-login-link,
+  .nav-signup-link {
+    font-size: 14px;
+  }
+  .nav-signup-link {
+    padding: 7px 10px;
+  }
+
+  .search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+  .search input,
+  .search input:focus {
+    font-size: 16px; /* 16px stops iOS from zooming in on focus */
+  }
+
+  .nav-links {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    font-size: 19px;
+  }
+  .nav-links a {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+}

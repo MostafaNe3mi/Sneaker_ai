@@ -1,0 +1,672 @@
+.stock-page {
+  display: block;
+  min-height: calc(100vh - 76px);
+  padding: clamp(48px, 7vw, 88px) clamp(20px, 6vw, 80px);
+}
+
+.stock-content {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+}
+
+.stock-heading {
+  max-width: 760px;
+  margin: 0 0 42px;
+}
+
+.stock-heading .info-page-description {
+  margin-bottom: 0;
+}
+
+.stock-heading .info-page-search {
+  margin-bottom: 0;
+}
+
+.sneaker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* cards are links to /sneakers/:id */
+.sneaker-card,
+.upcoming-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.upcoming-card:focus-visible {
+  border-color: rgba(57, 255, 20, 0.65);
+  outline: none;
+  transform: translateY(-8px);
+}
+
+.sneaker-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #111;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.3s ease;
+}
+
+.sneaker-card:hover,
+.sneaker-card:focus-visible {
+  border-color: rgba(57, 255, 20, 0.7);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  outline: none;
+  transform: translateY(-8px);
+}
+
+.sneaker-card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: #f5f5f4;
+}
+
+.sneaker-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.sneaker-card:hover .sneaker-card-image,
+.sneaker-card:focus-visible .sneaker-card-image {
+  transform: scale(1.06);
+}
+
+.sneaker-style-tip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  background: linear-gradient(180deg, transparent 15%, rgba(0, 0, 0, 0.88) 100%);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sneaker-card:hover .sneaker-style-tip,
+.sneaker-card:focus-visible .sneaker-style-tip {
+  opacity: 1;
+}
+
+.sneaker-style-label {
+  color: #39ff14;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.sneaker-style-tip p {
+  margin: 8px 0 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.sneaker-card-details {
+  padding: 18px;
+}
+
+.sneaker-card-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sneaker-brand,
+.sneaker-colorway {
+  margin: 0;
+  color: #a8a8a8;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sneaker-brand {
+  margin-bottom: 4px;
+  color: #39ff14;
+  font-weight: 700;
+}
+
+.sneaker-card h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.sneaker-colorway {
+  margin-top: 5px;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.sneaker-price {
+  flex: 0 0 auto;
+  margin: 2px 0 0;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: 20px;
+}
+
+.sneaker-sizes {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c4c4c4;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+}
+
+.sneaker-sizes > span {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sneaker-sizes ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sneaker-sizes li {
+  display: grid;
+  min-width: 30px;
+  min-height: 28px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.stock-no-results {
+  max-width: 650px;
+}
+
+.stock-collection-count {
+  margin: 14px 0 0;
+  color: #a7a7a7;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stock-collection + .stock-collection {
+  margin-top: 58px;
+}
+
+.stock-collection-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 0 0 22px;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.stock-collection-heading span {
+  color: #a8a8a8;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+}
+
+
+.stock-women-heading {
+  margin-bottom: 4px;
+  color: #ffe2ec;
+}
+
+.stock-women-heading span {
+  color: #d6a8bc;
+}
+
+.stock-women-intro {
+  margin: 0 0 24px;
+  color: #c7adba;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+}
+
+.sneaker-card-women {
+  border-color: rgba(255, 190, 215, 0.16);
+  background: #171215;
+}
+
+.sneaker-card-women:hover,
+.sneaker-card-women:focus-visible {
+  border-color: rgba(255, 160, 200, 0.75);
+}
+
+.sneaker-card-women .sneaker-brand {
+  color: #ffafd0;
+}
+
+.sneaker-card-women .sneaker-style-label {
+  color: #ffafd0;
+}
+
+.sneaker-card-women .sneaker-card-image-wrap {
+  background: #f8eef2;
+}
+
+.sneaker-tone-rose .sneaker-card-image-wrap,
+.sneaker-tone-cocoa .sneaker-card-image-wrap {
+  background: #f5e9e7;
+}
+
+.sneaker-tone-blush .sneaker-card-image-wrap,
+.sneaker-tone-pink .sneaker-card-image-wrap {
+  background: #f9e8f0;
+}
+
+.sneaker-tone-mint .sneaker-card-image-wrap {
+  background: #eaf3ee;
+}
+
+.sneaker-tone-sunset .sneaker-card-image-wrap {
+  background: #fbede5;
+}
+
+.sneaker-tone-pearl .sneaker-card-image-wrap,
+.sneaker-tone-cloud .sneaker-card-image-wrap {
+  background: #f1edf5;
+}
+
+.sneaker-tone-lavender .sneaker-card-image-wrap {
+  background: #eeeafa;
+}
+
+.sneaker-tone-sand .sneaker-card-image-wrap {
+  background: #f5eee5;
+}
+
+.sneaker-tone-skyline .sneaker-card-image-wrap {
+  background: #eeedf2;
+}
+
+.sneaker-tone-trunner .sneaker-card-image-wrap {
+  background: #f1ebe7;
+}
+
+.sneaker-gender-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 6px 9px;
+  background: rgba(25, 16, 21, 0.9);
+  color: #ffc4db;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.upcoming-page {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(57, 255, 20, 0.1), transparent 32%),
+    #080808;
+}
+
+.upcoming-heading {
+  position: relative;
+  max-width: 900px;
+  margin-bottom: 50px;
+}
+
+.upcoming-heading h1 {
+  font-size: clamp(56px, 10vw, 108px);
+  letter-spacing: -0.035em;
+  text-shadow: 0 8px 42px rgba(57, 255, 20, 0.15);
+}
+
+.upcoming-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upcoming-eyebrow .upcoming-badge-dot {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.upcoming-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid rgba(57, 255, 20, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.upcoming-count-number {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  background: #39ff14;
+  color: #080808;
+  font-family: "Anton", sans-serif;
+  font-size: 23px;
+}
+
+.upcoming-count strong,
+.upcoming-count small {
+  display: block;
+}
+
+.upcoming-count strong {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.upcoming-count small {
+  margin-top: 2px;
+  color: #a8a8a8;
+  font-size: 14px;
+}
+
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.upcoming-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.24);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.upcoming-card:hover {
+  border-color: rgba(57, 255, 20, 0.65);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42), 0 0 25px rgba(57, 255, 20, 0.08);
+  transform: translateY(-8px);
+}
+
+.upcoming-card-image-wrap {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  aspect-ratio: 1 / 0.82;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(57, 255, 20, 0.14), transparent 58%),
+    #f5f5f4;
+}
+
+.upcoming-card-fireside .upcoming-card-image-wrap {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(255, 105, 42, 0.2), transparent 58%),
+    #f5f2ed;
+}
+
+.upcoming-card-dunk .upcoming-card-image-wrap {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(51, 143, 255, 0.19), transparent 58%),
+    #f1f4f6;
+}
+
+.upcoming-card-luxe .upcoming-card-image-wrap {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(255, 133, 62, 0.2), transparent 58%),
+    #f4f0ed;
+}
+
+.upcoming-card-pegasus .upcoming-card-image-wrap {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(99, 177, 255, 0.24), transparent 58%),
+    #f1f4f8;
+}
+
+.upcoming-card-metcon .upcoming-card-image-wrap {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(57, 255, 20, 0.21), transparent 58%),
+    #f3f5f0;
+}
+
+.upcoming-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid rgba(57, 255, 20, 0.55);
+  background: rgba(8, 8, 8, 0.92);
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.upcoming-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #39ff14;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.9);
+  animation: upcoming-pulse 1.8s ease-in-out infinite;
+}
+
+.upcoming-card-number {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  z-index: 1;
+  color: rgba(8, 8, 8, 0.45);
+  font-family: "Anton", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.upcoming-card-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.upcoming-card:hover .upcoming-card-image {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.upcoming-image-glow {
+  position: absolute;
+  right: 15%;
+  bottom: 8%;
+  left: 15%;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  filter: blur(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.upcoming-card:hover .upcoming-image-glow {
+  opacity: 0.65;
+  transform: scaleX(0.8);
+}
+
+.upcoming-card-details {
+  position: relative;
+  padding: 20px;
+  background:
+    linear-gradient(135deg, rgba(57, 255, 20, 0.035), transparent 55%),
+    #111;
+}
+
+.upcoming-card-brand {
+  margin: 0 0 6px;
+  color: #39ff14;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.upcoming-card-details h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(21px, 2vw, 27px);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.upcoming-card-colorway {
+  margin: 7px 0 0;
+  color: #b5b5b5;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+}
+
+.upcoming-card-description {
+  min-height: 44px;
+  margin: 15px 0 18px;
+  color: #d0d0d0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.upcoming-release {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+}
+
+.upcoming-release span {
+  color: #929292;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.upcoming-shop-link {
+  margin-top: 32px;
+}
+
+@keyframes upcoming-pulse {
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 1100px) {
+  .sneaker-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .upcoming-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .stock-page {
+    min-height: calc(100vh - 120px);
+    padding: 48px 20px;
+  }
+
+  .sneaker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .upcoming-grid {
+    gap: 16px;
+  }
+
+  .sneaker-card-details {
+    padding: 14px;
+  }
+
+  .sneaker-style-tip {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sneaker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sneaker-card-image-wrap {
+    aspect-ratio: 1;
+  }
+
+  .upcoming-card-image-wrap {
+    aspect-ratio: 1 / 0.86;
+  }
+
+  .sneaker-style-tip {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sneaker-card,
+  .sneaker-card-image,
+  .sneaker-style-tip,
+  .upcoming-card,
+  .upcoming-card-image,
+  .upcoming-badge-dot {
+    transition: none;
+    animation: none;
+  }
+}
