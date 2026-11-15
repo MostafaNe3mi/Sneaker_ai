@@ -17,10 +17,6 @@ function Navbar() {
       <Link to="/" className="logo">Kicks With Style</Link>
 
       <form className="search" onSubmit={handleSearch}>
-        <svg className="search-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" />
-          <line x1="16.5" y1="16.5" x2="21" y2="21" />
-        </svg>
         <input
           type="text"
           placeholder="Search sneakers, men, or women"
@@ -31,8 +27,7 @@ function Navbar() {
         <datalist id="sneaker-search-suggestions">
           <option value="men" label="Men's sneakers" />
           <option value="women" label="Women's sneakers" />
-          <option value="male" label="Men's sneakers" />
-          <option value="female" label="Women's sneakers" />
+         
         </datalist>
       </form>
 

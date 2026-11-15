@@ -9,7 +9,7 @@ function SneakerDetails() {
   const sneaker = getSneakerById(id);
   const [selectedSize, setSelectedSize] = useState(null);
 
-  // go back to the top when a new sneaker opens
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = sneaker
